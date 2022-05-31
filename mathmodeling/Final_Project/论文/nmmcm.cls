@@ -49,7 +49,6 @@
 \newcommand{\mcmsetup}[1]{\setkeys{MCM}{#1}}
 \ProcessOptionsX\relax
 \LoadClass[a4paper, 12pt]{article}
-\newcommand{\team}{Team \#\ \MCM@opt@tcn}
 \RequirePackage{fancyhdr, fancybox}
 \RequirePackage{ifthen}
 \RequirePackage{lastpage}
@@ -136,7 +135,6 @@
 %\geometry{a4paper, margin = 1in}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\small\sffamily \team}
 \rhead{ Page \thepage\space of \pageref{LastPage}}
 \cfoot{\xiaowuhao\sffamily \thepage}
 \setlength\parskip{1.5\baselineskip}

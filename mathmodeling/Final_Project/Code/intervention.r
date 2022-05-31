@@ -100,7 +100,7 @@ plot(trs_2022_loss)
 print(trs_2022_loss)
 
 #绘出2022年的图
-month_total <- read_csv("TRS_China.csv",
+month_total <- read_csv("TRS_China_trainning.csv",
   locale = locale(encoding = "GBK")
 )
 
@@ -111,10 +111,15 @@ fit <- Arima(trs,
   seasonal = list(order = c(1, 1, 1), period = 12),
 
 )
-fc <- forecast(fit, h = 10)$fitted
+fc <- forecast(fit, h = 10)
 print(fc)
-print(autoplot(fc +
-  autolayer(fc
-  - trs_2022_loss)))
+fc <- ts(c(
+  38157.18, 38093.26, 41309.77, 42776.93, 41109.13,
+  41751.93, 43536.51, 46978.47, 47642.45, 48357.27
+), start = c(2022, 3), frequency = 12)
 
-print(forecast(fit, h = 10))
+print(fc)
+print(autoplot(fc) + autolayer(fc - trs_2022_loss)
+  + geom_ribbon(aes(ymin = fc - trs_2022_loss, ymax = fc),
+    fill = "red", alpha = 0.5
+  ))
