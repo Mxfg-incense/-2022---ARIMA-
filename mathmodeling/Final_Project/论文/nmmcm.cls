@@ -215,7 +215,7 @@
     \@keywords\par
   }
 \fi
-\newcommand{\headset}{\Huge 预测本轮疫情造成全国社会消费品零售总额-基于ARIMA模型}
+\newcommand{\headset}{\Huge 预测2022年社会消费品零售总额的损失-基于季节性ARIMA模型}
 \newcommand{\problem}[1]{\mcmsetup{problem = #1}}
 \def\makesheet{%
   %\pagestyle{empty}%
@@ -381,7 +381,7 @@
     commentstyle=\color{darkgreen},%\itshape,%
     stringstyle=\color{black}%
 }
-\lstloadlanguages{C,C++,Java,Matlab,Mathematica}
+\lstloadlanguages{R,C,C++,Java,Matlab,Mathematica}
 \endinput
 
 % End of file nmmcm.cls

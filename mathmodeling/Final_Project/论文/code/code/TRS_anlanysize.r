@@ -1,14 +1,16 @@
 library(readr)
+library(forecast)
+library(tseries)
 setwd("E:/Code/code/mathmodeling/Final_Project/DATA")
+
+# 数据读取
 month_total <- read_csv("TRS_China_trainning.csv",
   locale = locale(encoding = "GBK")
 )
-test <- read_csv("TRS_China.csv",
-  locale = locale(encoding = "GBK")
-)
-plot(ts(test[["社会消费品零售总额（亿元）"]], start = c(2012, 1), frequency = 12))
 t <- month_total[["社会消费品零售总额（亿元）"]]
 trs <- ts(t, start = c(2012, 1), frequency = 12)
+
+# 绘出折线图
 plot(trs,
   main = "TRS of China 2012-2022",
   col = "#fb6305",
@@ -17,17 +19,15 @@ plot(trs,
   lwd = 2
 )
 
-library(forecast)
-library(tseries)
+#stl季节性分解
 fit <- stl(trs, s.window = "period")
 plot(fit, main = "Decomposition", lwd = 2)
 
+# 原数据平稳性检验
 print(adf.test(t))
 
-print(adf.test(diff(trs)))
-
-fit <- auto.arima(diff(trs))
-print(fit)
-accuracy(fit)
-forecast(fit, 100)
-plot(forecast(fit, 100), xlab = "Month", ylab = "Annual Flow")
+# 一阶差分与季节差分
+diff_trs <- diff(trs)
+ggtsdisplay(diff_trs, lag.max = 100)
+diff_season <- diff(diff_trs, lag = 12)
+ggtsdisplay(diff(diff_trs, lag = 12), lag.max = 100)

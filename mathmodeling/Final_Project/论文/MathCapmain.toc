@@ -1,0 +1,21 @@
+\contentsline {section}{\numberline {一、\hspace {-.5em}}模型假设}{1}{section.1}%
+\contentsline {section}{\numberline {二、\hspace {-.5em}}主要符号与说明}{1}{section.2}%
+\contentsline {section}{\numberline {三、\hspace {-.5em}}数据分析}{1}{section.3}%
+\contentsline {subsection}{\numberline {3.1}数据来源}{1}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}季节性分解}{2}{subsection.3.2}%
+\contentsline {section}{\numberline {四、\hspace {-.5em}}ARIMA模型建立}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}数据检验}{3}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}无季节性的ARIMA模型建立}{5}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}季节性的ARIMA模型}{7}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}参数估计}{7}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}模型的选择}{8}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}残差检验}{9}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}未受疫情干预的预测}{10}{subsection.4.7}%
+\contentsline {section}{\numberline {五、\hspace {-.5em}}干预分析模型的建立}{11}{section.5}%
+\contentsline {subsection}{\numberline {5.1}模型建立}{11}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}残差检验}{12}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}预测2022年的损失}{12}{subsection.5.3}%
+\contentsline {section}{\numberline {六、\hspace {-.5em}}模型的评价}{13}{section.6}%
+\contentsline {subsection}{\numberline {6.1}优点}{13}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}缺点}{13}{subsection.6.2}%
+\contentsfinish 

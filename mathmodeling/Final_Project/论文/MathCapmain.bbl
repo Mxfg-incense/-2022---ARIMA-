@@ -1,0 +1,43 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
+
+\bibitem[Cleveland et~al.(1990)Cleveland, Cleveland, McRae, and
+  Terpenning]{STL}
+CLEVELAND~R~B, CLEVELAND~W~S, MCRAE~J~E, et~al.
+\newblock Stl: A seasonal-trend decomposition[J].
+\newblock J. Off. Stat, 1990, 6\allowbreak (1): 3-73.
+
+\bibitem[Yang et~al.(2022)Yang, Wei, Jiang, Ye, and Tatano]{yang2022estimating}
+YANG~L, WEI~C, JIANG~X, et~al.
+\newblock Estimating the economic effects of the early covid-19 emergency
+  response in cities using intracity travel intensity data[J].
+\newblock International Journal of Disaster Risk Science, 2022, 13\allowbreak
+  (1): 125-138.
+
+\bibitem[Tsay(2012)]{Ruey}
+TSAY~R~S.
+\newblock An introduction to analysis of financial data with r[M].
+\newblock [S.l.]: Wiley Publishing, 2012.
+
+\bibitem[Hyndman et~al.(2018)Hyndman and Athanasopoulos]{Rob}
+HYNDMAN~R~J, ATHANASOPOULOS~G.
+\newblock For further information on stationarity and differencing see[M].
+\newblock [S.l.: s.n.], 2018.
+
+\bibitem[杨新洪(2021)]{yandou}
+杨新洪.
+\newblock
+  新冠肺炎疫情与“烟斗形”经济运行模式分析及模型测算——以广东省2020年前三季度经济走势为例[J].
+\newblock 深圳社会科学, 2021, 4\allowbreak (1): 18-39.
+
+\end{thebibliography}
