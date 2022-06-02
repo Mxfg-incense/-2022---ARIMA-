@@ -220,7 +220,7 @@
     \label{tab:Ljung-Box}%H
   \end{table}%
 
-  由于\(p<0.05\)所以拒绝原假设，则\(\hat{X}_t\)为非随机序列，可进行下一步建模。
+  由于\(p<0.05\)所以拒绝原假设，则\(\Delta X_t\)为非随机序列，可进行下一步建模。
 \end{frame}
 %-------------------------------------------------------
 \subsection{参数估计}
@@ -264,7 +264,7 @@
 %-------------------------------------------------------
 \begin{frame}{季节性ARIMA模型}
   \begin{block}{季节性ARIMA模型}
-    将一阶差分序列\(\hat{X}_t\)进行分解，写成季节，部分与非季节部分的乘积
+    将一阶差分序列\(\Delta X_t\)进行分解，写成季节，部分与非季节部分的乘积
 
     \begin{center}
       ARIMA\;\;\;\;	\((p, d, q)\)	\;\;\;\;\; \((P, D, Q)_{m}\) \label{Season_decompose}
@@ -277,8 +277,8 @@
 
 \begin{frame}{季节性差分}
   \begin{block}{季节性差分}
-    观测周期为12个月，为先消除季节型波动，对一阶差分后\(\hat{X}_t\)
-    \[X'_{t} = \hat{X}_t-\hat{X}_{t-12}\]
+    观测周期为12个月，为先消除季节型波动，对\(\Delta X_t\)再进行差分
+    \[X'_{t} = \Delta X_t-\Delta X_{t-12}\]
   \end{block}
 \end{frame}
 
@@ -485,11 +485,4 @@
   \bibliographystyle{gbt7714-numerical}
   \bibliography{ref.bib}
 \end{frame}
-
-
-{\1
-\begin{frame}[plain,noframenumbering]
-  \finalpage{Thank you for using Feather Beamer Theme!}
-\end{frame}}
-
 \end{document}

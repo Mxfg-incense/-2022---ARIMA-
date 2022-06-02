@@ -101,11 +101,11 @@
     2 & $T_t$ & 趋势因子时间序列 \\
     3 & $S_t$ & 季节因子时间序列 \\
     4 & $R_t$ & 随机误差因子时间序列 \\
-    5 & $\hat{X}_t$ & 对\(X_t\)一阶差分后的时间序列 \\
+    5 & $\Delta X_t$ & 对\(X_t\)一阶差分后的时间序列 \\
     6 & $\epsilon_t$ & 白噪声序列 \\
     7 & $p$ & 自回归阶数 \\
     8 & $q$ & 移动平均阶数 \\
-    9 & $X'$ & 对\(\hat{X}_t\)季节差分后的时间序列 \\
+    9 & $X'$ & 对\(\Delta X_t\)季节差分后的时间序列 \\
     10 & $B$ & 滞后算子 \\
     11 & $lag$ & 滞后阶数 \\
     12 & $\omega$ & 疫情干预系数 \\
@@ -193,9 +193,9 @@
 采用\(ADF\)检验原序列的平稳性，\(ADF\) 检验通过一下三个模型检验:
 \begin{equation}
   \begin{aligned}
-  &\Delta X_t = \delta X_{t-1} + \sum_{i=1}^{m}\beta_i X_{t-i} + \epsilon_t \\
-  &\Delta X_t =\alpha + \delta X_{t-1} + \sum_{i=1}^{m}\beta_i X_{t-i} + \epsilon_t \\
-  &\Delta X_t =\alpha +\beta_t+ \delta X_{t-1} + \sum_{i=1}^{m}\beta_i X_{t-i} + \epsilon_t
+  &\Delta X_t\ = \delta X_{t-1} + \sum_{i=1}^{m}\beta_i X_{t-i} + \epsilon_t \\
+  &\Delta X_t\ =\alpha + \delta X_{t-1} + \sum_{i=1}^{m}\beta_i X_{t-i} + \epsilon_t \\
+  &\Delta X_t\ =\alpha +\beta_t+ \delta X_{t-1} + \sum_{i=1}^{m}\beta_i X_{t-i} + \epsilon_t
   \end{aligned}
 \end{equation}
 
@@ -219,7 +219,7 @@
 
 由于\(p-value > 0.05 \)所以无法拒绝原假设,因此原序列是非平稳的。
 为了将原序列转化为平稳序列处理，因为从图\ref{TRS}看出原序列应该
-有随时间线性增加的趋势，考虑对原序列做一阶差分\cite{Rob}，得到新序列\(\hat{X}_t\)如下图:
+有随时间线性增加的趋势，考虑对原序列做一阶差分\cite{Rob}，得到新序列\(\Delta X_t\)如下图:
 \begin{figure}[H] %H为当前位置，!htb为忽略美学标准，htbp为浮动图形
   \centering %图片居中
   \includegraphics[width=0.7\textwidth]{diff_TRS.pdf} %插入图片，[]中设置图片大小，{}中是图片文件名
@@ -245,8 +245,8 @@
 即通过一阶差分去掉了原序列线性的趋势因子。
 
 \subsubsection*{随机性检验}
-尽管\(\hat{X}_t\)为平稳序列，但是如白噪声等纯随机序列
-也是平稳序列，若\(\hat{X}_t\)是纯随机序列，则没有建模研究价值
+尽管\(\Delta X_t\)为平稳序列，但是如白噪声等纯随机序列
+也是平稳序列，若\(\Delta X_t\)是纯随机序列，则没有建模研究价值
 价值，于是采用\(Ljung-Box\)检验随机性
 
 假设\(H_0:\rho _1 = \rho _2 = \cdots = \rho _n = 0\)
@@ -275,7 +275,7 @@
   \label{tab:Ljung-Box}%H
 \end{table}%
 
-由于\(p<0.05\)所以拒绝原假设，则\(\hat{X}_t\)为非随机序列，可进行下一步建模。
+由于\(p<0.05\)所以拒绝原假设，则\(\Delta X_t\)为非随机序列，可进行下一步建模。
 
 
 \subsection{无季节性的ARIMA模型建立}
@@ -297,7 +297,7 @@
 关系\cite{Rob}，例如若\(y_t\)与\(y_{t-1}\)自相关，那么\(y_t\)与\(y_{t-2}\)一定自相关，
 因为他们都通过与\(y_{t-1}\)直接相关，而间接相关，为了分离\(y_{t-1},
 y_{t-2},\cdots,y_{t-k+1}\)的干扰，直接得到\(y_t\)与\(y_{t-k}\)之间的相关性，通过\(PACF\)估计\(P\)值，由于历史白噪声\(\varepsilon_{t-k}\)通过影响历史观测值来间接影响
-当前\(y_t\)所以用\(ACF\)估计\(q\)值，绘出一阶差分后\(\hat{X}_t\)的\(ACF\)和\(PACF\)图（临界值\(\frac{\pm1.96}{T}\)以用虚线标出)：
+当前\(y_t\)所以用\(ACF\)估计\(q\)值，绘出一阶差分后\(\Delta X_t\)的\(ACF\)和\(PACF\)图（临界值\(\frac{\pm1.96}{T}\)以用虚线标出)：
 \begin{figure}[H] %H为当前位置，!htb为忽略美学标准，htbp为浮动图形
   \centering %图片居中
   \includegraphics[width=1\textwidth]{acf_pacf.pdf} %插入图片，[]中设置图片大小，{}中是图片文件名
@@ -307,7 +307,8 @@ y_{t-2},\cdots,y_{t-k+1}\)的干扰，直接得到\(y_t\)与\(y_{t-k}\)之间的
   \subsection{季节性的ARIMA模型}
   通过图\ref{acf_pacf}发现在滞后阶数\(lag\)值很高时才出现拖尾，会导致参数过多发生
   过拟合现象， 而且通过图\ref{decompose}得到消费总额应该是呈现明显季节波动
-  所以考虑将一阶差分序列\(\hat{X}_t\)分解为季节部分和剩下的非季节部分\cite{Rob}:
+  所以考虑将一阶差分序列\(\Delta X_t\)分解为季节部分和剩下的非季节部分\cite{Rob}:
+
 \begin{center}
   ARIMA\;\;\;\;	\((p, d, q)\)	\;\;\;\;\; \((P, D, Q)_{m}\) \label{Season_decompose}
 \end{center}
@@ -320,8 +321,8 @@ y_{t-2},\cdots,y_{t-k+1}\)的干扰，直接得到\(y_t\)与\(y_{t-k}\)之间的
 \end{equation}
 
  \subsection{参数估计}
- 为先消除季节型波动，对一阶差分后\(\hat{X}_t\)做季节性差分，得到
- \(X'_{t}\) = \(\hat{X}_t-\hat{X}_{t-12}\)，绘出相关图像：
+ 为先消除季节型波动，对一阶差分后\(\Delta X_t\)做季节性差分，得到
+ \(X'_{t}\) = \(\Delta X_t-\Delta X_{t-12}\)，绘出相关图像：
  \begin{figure}[H] %H为当前位置，!htb为忽略美学标准，htbp为浮动图形
   \centering %图片居中
   \includegraphics[width=1\textwidth]{Season_diff.pdf} %插入图片，[]中设置图片大小，{}中是图片文件名

@@ -1,0 +1,12 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{数据分析}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{数据来源}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{季节性分解}{4}{0}{1}
+\beamer@sectionintoc {2}{建立ARIMA模型}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{数据检验}{5}{0}{2}
+\beamer@subsectionintoc {2}{2}{参数估计}{11}{0}{2}
+\beamer@subsectionintoc {2}{3}{残差检验}{22}{0}{2}
+\beamer@subsectionintoc {2}{4}{未受疫情干预的预测}{25}{0}{2}
+\beamer@sectionintoc {3}{干预分析模型的建立}{26}{0}{3}
+\beamer@subsectionintoc {3}{1}{参数估计}{26}{0}{3}
+\beamer@subsectionintoc {3}{2}{预测结果}{28}{0}{3}
