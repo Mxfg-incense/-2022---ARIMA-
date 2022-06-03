@@ -63,8 +63,8 @@ for (i in c(3:10)) {
 
 
 #预测结果
-print(sum(trs_2022_loss))
-trs_2022_loss <- ts(loss_2022, frequency = 12, start = c(2022, 3))
+print(sum(loss_2022))
+trs_2022_loss <- ts(loss_2022, frequency = 12, start = c(2022, 4))
 plot(trs_2022_loss)
 print(trs_2022_loss)
 
@@ -82,7 +82,7 @@ fit <- Arima(trs,
 
 )
 fc <- forecast(fit, h = 10)
-print(fc)
+plot(fc)
 fc <- ts(c(
   38157.18, 38093.26, 41309.77, 42776.93, 41109.13,
   41751.93, 43536.51, 46978.47, 47642.45, 48357.27

@@ -413,12 +413,6 @@
 
 \subsection{参数估计}
 \begin{frame}{干预分析}
-  \begin{block}{持续性干预变量}
-    \[S_t^T = \begin{cases}
-      0& \text{疫情发生前 t<T}\\
-      1& \text{疫情发生后 t>=T}
-    \end{cases}\]
-  \end{block}
   \begin{block}{干预分析模型}
     设\(\omega\)为干预未知的干预系数，\(Z_t\)为疫情发生后所产生的损失的时间序列，通过一阶差分获得平稳序列，
     则干预后的模型可写为
